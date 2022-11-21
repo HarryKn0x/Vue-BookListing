@@ -5,7 +5,7 @@
       <li v-for='book in books'> <book-item :book="book"/> </li>
     </ul>
     <br>
-    <book-form @addBook="'appendBook'"></book-form>
+    <book-form @addBook='appendBook'/>
   </div>
 </template>
 
