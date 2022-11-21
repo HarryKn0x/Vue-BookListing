@@ -4,6 +4,8 @@
     <ul>
       <li v-for='book in books'> <book-item :book="book"/> </li>
     </ul>
+    <br>
+    <book-form @addBook="'appendBook'"></book-form>
   </div>
 </template>
 
@@ -20,9 +22,10 @@ ul{
 
 <script>
 import BookItem from './BookItem';
+import BookForm from './BookForm';
 export default {
   name: 'BookList',
-  components: { BookItem },
+  components: { BookForm, BookItem },
   data() {
     return {
       title: "All Books",
@@ -33,5 +36,10 @@ export default {
       ]
     };
   },
+  methods: {
+    appendBook(bookTitle, bookAuthor) {
+        this.books.push({title: bookTitle, author: bookAuthor});
+    },
+  }
 };
 </script>
